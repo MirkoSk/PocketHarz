@@ -133,7 +133,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: waterShader
-    second: {fileID: 2100000, guid: a43e6ed03340b66408b6e0d6e6fdc845, type: 2}
+    second: {fileID: 2100000, guid: abe5daed9e9907b40a23bdb89d3c0e3b, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
