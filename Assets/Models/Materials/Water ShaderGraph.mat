@@ -21,9 +21,13 @@ Material:
   - MOTIONVECTORS
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _Texture2DAsset_E6FE693F_Out_0:
+        m_Texture: {fileID: 2800000, guid: 8a8d21b2d331bf248a76c3d7533d588c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_17EA89AF: -3.24
+    - Vector1_17EA89AF: 0
     - Vector1_435E6D67: 305.7
     m_Colors:
     - Color_4560DA7D: {r: 0, g: 0.61176443, b: 1, a: 1}
