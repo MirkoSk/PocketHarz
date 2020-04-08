@@ -236,6 +236,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pocketHouse_Harz_v010
       objectReference: {fileID: 0}
+    - target: {fileID: 717127429494111933, guid: e56163bdee48efe429508bd5e75cb473,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c5d978c8c54782f43a1d197e04ff0d07, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e56163bdee48efe429508bd5e75cb473, type: 3}
 --- !u!1 &1067642716
@@ -266,7 +271,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.9835481, b: 0.9386792, a: 1}
+  m_Color: {r: 1, g: 0.9835481, b: 1, a: 1}
   m_Intensity: 1.24
   m_Range: 10
   m_SpotAngle: 30
@@ -276,7 +281,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.635
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -323,13 +328,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067642716}
-  m_LocalRotation: {x: 0.41471216, y: 0.17448416, z: -0.0813633, w: 0.8893532}
+  m_LocalRotation: {x: 0.4483861, y: 0.3572321, z: -0.20170087, w: 0.794136}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: 22.2, z: 0}
+  m_LocalEulerAnglesHint: {x: 58.9, y: 48.44, z: 0}
 --- !u!1 &6384392818109793580
 GameObject:
   m_ObjectHideFlags: 0
