@@ -9,7 +9,6 @@ public class MouseParticlesController : MonoBehaviour
     [SerializeField] new ParticleSystem particleSystem = null;
     [SerializeField] float flightHeight = 1f;
     [SerializeField] LayerMask rayLayerMask = new LayerMask();
-    [SerializeField] int cursorStartxPos = 30, cursorStartyPos = 1000;
 
     RaycastHit hit;
     bool active;
@@ -38,7 +37,7 @@ public class MouseParticlesController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!active) return;
 
