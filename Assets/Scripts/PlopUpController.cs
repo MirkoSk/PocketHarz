@@ -19,8 +19,12 @@ public class PlopUpController : MonoBehaviour
         }
     }
 
+    public delegate void plopInCompletedHandler();
+    public static event plopInCompletedHandler plopInCompleted;
+
     [Header("Timing")]
     [SerializeField] float plopDuration = 0.1f;
+    [SerializeField] AnimationCurve plopAnimation = new AnimationCurve();
     [SerializeField] float initialDelay = 2f;
     [SerializeField] float maxTimeBetweenPlops = 1f;
     [SerializeField] AnimationCurve timeBetweenPlops = new AnimationCurve();
@@ -70,7 +74,7 @@ public class PlopUpController : MonoBehaviour
 
         for (int i = 0; i < ploppables.Count; i++)
         {
-            ploppables[i].transform.DOScale(ploppables[i].originalScale, plopDuration).SetEase(Ease.OutElastic);
+            ploppables[i].transform.DOScale(ploppables[i].originalScale, plopDuration).SetEase(plopAnimation);
 
             audioSource.pitch = Random.Range(minPitchRange, maxPitchRange);
             yield return new WaitForSeconds((plopDuration * plopSoundDelay) / audioSource.pitch);
@@ -82,5 +86,7 @@ public class PlopUpController : MonoBehaviour
             waitTime *= offset;
             yield return new WaitForSeconds(waitTime - (plopDuration * plopSoundDelay));
         }
+
+        plopInCompleted?.Invoke();
     }
 }
