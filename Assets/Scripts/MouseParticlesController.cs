@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class MouseParticlesController : MonoBehaviour
 {
 
+    [SerializeField] float spawnDelay = 1f;
     [SerializeField] new ParticleSystem particleSystem = null;
     [SerializeField] float flightHeight = 1f;
     [SerializeField] LayerMask rayLayerMask = new LayerMask();
 
     RaycastHit hit;
     bool active;
+    AudioSource audioSource;
 
 
     private void OnEnable()
     {
+        audioSource = GetComponent<AudioSource>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         PlopUpController.plopInCompleted += Activate;
@@ -59,8 +61,20 @@ public class MouseParticlesController : MonoBehaviour
 
     void Activate()
     {
-        active = true;
+        StartCoroutine(Wait(spawnDelay, () =>
+        {
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
+        particleSystem.Play();
+        audioSource?.Play();
+        StartCoroutine(Wait(2f, () => { active = true; }));
+        }));
+    }
+
+    IEnumerator Wait(float delay, System.Action onComplete)
+    {
+        yield return new WaitForSeconds(delay);
+
+        onComplete.Invoke();
     }
 }
