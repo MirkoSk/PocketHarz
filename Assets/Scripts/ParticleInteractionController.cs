@@ -27,9 +27,12 @@ public class ParticleInteractionController : MonoBehaviour
         if (other.tag == "Ploppable")
         {
             Vector3 punchDirection = (transform.position - positionLastFrame);
+            punchDirection = Vector3.Cross(punchDirection, Vector3.down);
             float punchIntensity = punchDirection.magnitude;
             punchDirection = punchDirection.normalized;
             punchIntensity = punchIntensity.Remap(0f, maxMoveSpeed, 1f, maxPunchMultiplier);
+
+            Debug.DrawLine(other.transform.position, (other.transform.position + punchDirection) * punchIntensity * shakeIntensity, Color.green, 5f);
             other.transform.DOBlendablePunchRotation(punchDirection * punchIntensity * shakeIntensity, shakeDuration, shakeVibrato, shakeElasticity);
         }
     }
